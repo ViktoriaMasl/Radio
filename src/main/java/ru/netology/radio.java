@@ -1,6 +1,6 @@
 package ru.netology;
 
-public class radio {
+public class Radio {
     private int currentStation;
     private int maxStation;
     private int minStation;
@@ -13,7 +13,7 @@ public class radio {
     }
 
     public void setCurrentStation(int currentStation) {
-        if (currentStation > getMaxStation() || currentStation < getMinStation()){
+        if (currentStation > getMaxStation() || currentStation < getMinStation()) {
             return;
         }
         this.currentStation = currentStation;
@@ -40,7 +40,7 @@ public class radio {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > getMaxVolume() || currentVolume < getMinVolume() ){
+        if (currentVolume > getMaxVolume() || currentVolume < getMinVolume()) {
             return;
         }
         this.currentVolume = currentVolume;
@@ -63,43 +63,39 @@ public class radio {
     }
 
 
-
-    public void  increaseCurrentStation() {
-        if (currentStation >= maxStation ) {
+    public void increaseCurrentStation() {
+        if (currentStation >= maxStation) {
             currentStation = 0;
             return;
         }
-        this.currentStation ++;
+        this.currentStation++;
     }
 
 
-
-    public void  decreaseCurrentStation() {
-        if (currentStation <= minStation){
+    public void decreaseCurrentStation() {
+        if (currentStation <= minStation) {
             currentStation = 9;
             return;
         }
-            this.currentStation --;
-        }
+        this.currentStation--;
+    }
 
 
-
-    public void  increaseCurrentVolume() {
+    public void increaseCurrentVolume() {
         if (currentVolume >= maxVolume) {
             currentVolume = 10;
             return;
         }
-        this.currentVolume ++;
+        this.currentVolume++;
     }
 
 
-
-    public void  decreaseCurrentVolume() {
-        if (currentVolume <= minVolume){
+    public void decreaseCurrentVolume() {
+        if (currentVolume <= minVolume) {
             currentVolume = 0;
             return;
         }
-        this.currentVolume --;
+        this.currentVolume--;
     }
 
 }
