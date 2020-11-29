@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RadioTest {
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/dataForIncreaseStation.csv", delimiter = '|', numLinesToSkip = 2)
+    @CsvFileSource(resources = "/DataForIncreaseStation.csv", delimiter = '|', numLinesToSkip = 2)
     void shouldIncreaseCurrentStation(int currentStation, int minStation, int maxStation, int expected) {
         Radio radio = new Radio();
         radio.setMaxStation(maxStation);
@@ -20,7 +20,7 @@ class RadioTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/dataForDecreaseStation.csv", delimiter = '|', numLinesToSkip = 2)
+    @CsvFileSource(resources = "/DataForDecreaseStation.csv", delimiter = '|', numLinesToSkip = 2)
     void shouldDecreaseCurrentStation(int currentStation, int minStation, int maxStation, int expected) {
         Radio radio = new Radio();
         radio.setMaxStation(maxStation);
@@ -32,7 +32,7 @@ class RadioTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/dataForIncreaseVolume.csv", delimiter = '|', numLinesToSkip = 2)
+    @CsvFileSource(resources = "/DataForIncreaseVolume.csv", delimiter = '|', numLinesToSkip = 2)
     void shouldIncreaseCurrentVolume(int currentVolume, int minVolume, int maxVolume, int expected) {
         Radio radio = new Radio();
         radio.setMaxVolume(maxVolume);
@@ -44,7 +44,7 @@ class RadioTest {
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/dataForDecreaseVolume.csv", delimiter = '|', numLinesToSkip = 2)
+    @CsvFileSource(resources = "/DataForDecreaseVolume.csv", delimiter = '|', numLinesToSkip = 2)
     void shouldDecreaseCurrentVolume(int currentVolume, int minVolume, int maxVolume, int expected) {
         Radio radio = new Radio();
         radio.setMaxVolume(maxVolume);
