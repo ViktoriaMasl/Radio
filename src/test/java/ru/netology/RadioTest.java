@@ -54,5 +54,5 @@ class RadioTest {
 
         assertEquals(expected, radio.getCurrentVolume());
     }
-
 }
+
