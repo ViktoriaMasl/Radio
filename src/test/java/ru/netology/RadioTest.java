@@ -16,6 +16,7 @@ class RadioTest {
         assertEquals(expected, radio.getCurrentStation());
     }
 
+
     @ParameterizedTest
     @CsvFileSource(resources = "/DataForDecreaseStation.csv", delimiter = '|', numLinesToSkip = 2)
     void shouldDecreaseCurrentStation(int currentStation, int expected) {
@@ -24,6 +25,8 @@ class RadioTest {
 
         assertEquals(expected, radio.getCurrentStation());
     }
+
+
 
     @ParameterizedTest
     @CsvFileSource(resources = "/DataForInputStation.csv", delimiter = '|', numLinesToSkip = 2)
