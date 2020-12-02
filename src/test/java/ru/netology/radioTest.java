@@ -8,50 +8,48 @@ import static org.junit.jupiter.api.Assertions.*;
 class RadioTest {
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/dataForIncreaseStation.csv", delimiter = '|', numLinesToSkip = 2)
-    void shouldIncreaseCurrentStation(int currentStation, int minStation, int maxStation, int expected) {
-        Radio radio = new Radio();
-        radio.setMaxStation(maxStation);
-        radio.setMinStation(minStation);
-        radio.setCurrentStation(currentStation);
+    @CsvFileSource(resources = "/DataForIncreaseStation.csv", delimiter = '|', numLinesToSkip = 2)
+    void shouldIncreaseCurrentStation(int currentStation, int expected) {
+        Radio radio = new Radio(10, 0, currentStation, 100, 0, 0);
         radio.increaseCurrentStation();
 
         assertEquals(expected, radio.getCurrentStation());
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/dataForDecreaseStation.csv", delimiter = '|', numLinesToSkip = 2)
-    void shouldDecreaseCurrentStation(int currentStation, int minStation, int maxStation, int expected) {
-        Radio radio = new Radio();
-        radio.setMaxStation(maxStation);
-        radio.setMinStation(minStation);
-        radio.setCurrentStation(currentStation);
+    @CsvFileSource(resources = "/DataForDecreaseStation.csv", delimiter = '|', numLinesToSkip = 2)
+    void shouldDecreaseCurrentStation(int currentStation, int expected) {
+        Radio radio = new Radio(10, 0, currentStation, 100, 0, 0);
         radio.decreaseCurrentStation();
 
         assertEquals(expected, radio.getCurrentStation());
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/dataForIncreaseVolume.csv", delimiter = '|', numLinesToSkip = 2)
-    void shouldIncreaseCurrentVolume(int currentVolume, int minVolume, int maxVolume, int expected) {
+    @CsvFileSource(resources = "/DataForInputStation.csv", delimiter = '|', numLinesToSkip = 2)
+    void shouldInputCurrentStation(int currentStation, int expected) {
         Radio radio = new Radio();
-        radio.setMaxVolume(maxVolume);
-        radio.setMinVolume(minVolume);
-        radio.setCurrentVolume(currentVolume);
+        radio.inputCurrentStation(currentStation);
+        assertEquals(expected, radio.getCurrentStation());
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(resources = "/DataForIncreaseVolume.csv", delimiter = '|', numLinesToSkip = 2)
+    void shouldIncreaseCurrentVolume(int currentVolume, int expected) {
+        Radio radio = new Radio(10, 0, 0, 100, 0, currentVolume);
         radio.increaseCurrentVolume();
 
         assertEquals(expected, radio.getCurrentVolume());
     }
 
     @ParameterizedTest
-    @CsvFileSource(resources = "/dataForDecreaseVolume.csv", delimiter = '|', numLinesToSkip = 2)
-    void shouldDecreaseCurrentVolume(int currentVolume, int minVolume, int maxVolume, int expected) {
-        Radio radio = new Radio();
-        radio.setMaxVolume(maxVolume);
-        radio.setMinVolume(minVolume);
-        radio.setCurrentVolume(currentVolume);
+    @CsvFileSource(resources = "/DataForDecreaseVolume.csv", delimiter = '|', numLinesToSkip = 2)
+    void shouldDecreaseCurrentVolume(int currentVolume, int expected) {
+        Radio radio = new Radio(10, 0, 0, 100, 0, currentVolume);
         radio.decreaseCurrentVolume();
 
         assertEquals(expected, radio.getCurrentVolume());
     }
+
 }
+

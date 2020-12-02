@@ -1,101 +1,85 @@
 package ru.netology;
 
 public class Radio {
+    private int maxStation = 10;
+    private int minStation = 0;
     private int currentStation;
-    private int maxStation;
-    private int minStation;
+    private int maxVolume = 100;
+    private int minVolume = 0;
     private int currentVolume;
-    private int maxVolume;
-    private int minVolume;
+
+    public Radio() {
+    }
+
+    public Radio(int maxStation, int minStation, int currentStation, int maxVolume, int minVolume, int currentVolume) {
+        this.maxStation = maxStation;
+        this.minStation = minStation;
+        this.currentStation = currentStation;
+        this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
+        this.currentVolume = currentVolume;
+    }
 
     public int getCurrentStation() {
         return currentStation;
-    }
-
-    public void setCurrentStation(int currentStation) {
-        if (currentStation > getMaxStation() || currentStation < getMinStation()) {
-            return;
-        }
-        this.currentStation = currentStation;
-    }
-
-    public int getMaxStation() {
-        return maxStation;
-    }
-
-    public void setMaxStation(int maxStation) {
-        this.maxStation = maxStation;
-    }
-
-    public int getMinStation() {
-        return minStation;
-    }
-
-    public void setMinStation(int minStation) {
-        this.minStation = minStation;
     }
 
     public int getCurrentVolume() {
         return currentVolume;
     }
 
-    public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > getMaxVolume() || currentVolume < getMinVolume()) {
-            return;
-        }
-        this.currentVolume = currentVolume;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
-    }
-
-
     public void increaseCurrentStation() {
-        if (currentStation >= maxStation) {
-            currentStation = 0;
+        if (currentStation < maxStation && currentStation >= minStation) {
+            this.currentStation++;
             return;
+        } else {
+            currentStation = minStation;
         }
-        this.currentStation++;
-    }
 
+    }
 
     public void decreaseCurrentStation() {
-        if (currentStation <= minStation) {
-            currentStation = 9;
+        if (currentStation > minStation && currentStation <= maxStation) {
+            this.currentStation--;
             return;
+        } else {
+            currentStation = maxStation;
         }
-        this.currentStation--;
     }
 
+    public void inputCurrentStation(int currentStation) {
+        if (currentStation > maxStation) {
+            this.currentStation = minStation;
+            return;
+        } else if (currentStation < minStation) {
+            this.currentStation = maxStation;
+            return;
+        }
+        this.currentStation = currentStation;
+    }
 
     public void increaseCurrentVolume() {
-        if (currentVolume >= maxVolume) {
-            currentVolume = 10;
+        if (currentVolume < maxVolume && currentVolume >= minVolume) {
+            this.currentVolume++;
             return;
+        } else if (currentVolume <= minVolume) {
+            this.currentVolume = minVolume;
+            return;
+        } else {
+            this.currentVolume = maxVolume;
         }
-        this.currentVolume++;
     }
 
-
     public void decreaseCurrentVolume() {
-        if (currentVolume <= minVolume) {
-            currentVolume = 0;
+        if (currentVolume > minVolume && currentVolume <= maxVolume) {
+            this.currentVolume--;
             return;
+        } else if (currentVolume >= maxVolume) {
+            this.currentVolume = maxVolume;
+            return;
+        } else {
+            this.currentVolume = minVolume;
         }
-        this.currentVolume--;
     }
 
 }
